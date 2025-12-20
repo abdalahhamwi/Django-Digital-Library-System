@@ -37,4 +37,4 @@ Follow these steps to run the project locally:
 
 1. Make sure Python and Django are installed.  
 2. Clone the repository:  
-   git clone https://github.com/username/library-management-system.git
+   git clone https://github.com/abdalahhamwi/Django-Digital-Library-System.git
