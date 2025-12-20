@@ -9,7 +9,6 @@ It was developed as a practical application to learn Django fundamentals and how
 This system is not just a bookstore, but a real library management tool.  
 It allows managers to monitor inventory (available, rented, and sold books) and automatically calculate profits with precision.
 
----
 
 ## ✨ Key Features
 - Comprehensive Dashboard: Instant statistics for total, available, sold, and rented books.
@@ -23,14 +22,12 @@ It allows managers to monitor inventory (available, rented, and sold books) and 
   - Filter by category.
   - Filter by status using AJAX (without page reload).
 
----
 
 ## 🛠️ Tech Stack
 - Backend: Python, Django Framework  
 - Database: SQLite (default) or any Django-supported database  
 - Frontend: HTML, CSS, Bootstrap, JavaScript (AJAX filtering)
 
----
 
 ## 💻 Installation
 Follow these steps to run the project locally:
