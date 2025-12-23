@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 
@@ -12,7 +13,11 @@ def delete(request):
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "index.html", {
+        "x": Book.objects.all(),
+        "num": str(Book.objects.count())
+    })
+
 
 
 def update(request):
