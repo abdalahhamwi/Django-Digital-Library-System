@@ -102,50 +102,15 @@
                   <button type="submit" class="btn btn-success">save</button>
                   <button id="backcat" class="btn btn-primary ">back</button>
               </form>  
-             
+                  
+                  {% for z in cat%}
                   <li style="cursor: pointer;" class="nav-item">
                     <a id="" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>test 1</p>
+                      <p>{{z.name}}</p>
                     </a>
                   </li>
- 
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 2</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 3</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 4</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 5</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 6</p>
-                    </a>
-                  </li>
-        
-
+                  {% endfor %}
             </ul>
           </li>
 
@@ -165,7 +130,7 @@
           </li>
           <li style="cursor: pointer;" class="nav-item">
             <a id="" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
+              <i class="nav-icon far fa-circle text-green"></i>
               <p>متاح</p>
             </a>
           </li>
@@ -199,22 +164,25 @@
                 <div class="card-body pb-0">
                   <div class="row d-flex align-items-stretch">
                     <!-- بداية الكتاب -->
+
+                    {% for x in books %}
                     <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
                       <div  id="" class="card bg-light">
                         <div  class="card-header text-muted border-bottom-0">
                           تصنيف الكتاب
+                          
                         </div>
                         <div class="card-body pt-0">
                           <div class="row">
                             <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
+                              <h2 class="lead"><b>{{x.title}}</b></h2>
                               <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
+                                <li class="small"><span class="fa-li"></span>الحالة: {{x.status}}</li>
+                                <li class="small"><span class="fa-li"></span>السعر: {{x.price}}</li>
                               </ul>
                             </div>
                             <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
+                                <img style="height: 120px; width: 120px;"  src="{{ x.photo_author.url }}" alt="" class="img-circle img-fluid">
                               </div>
                           </div>
                         </div>
@@ -228,275 +196,11 @@
                             </a>
                           </div>
                         </div>
-                      </div>
-                      
+                      </div>   
                     </div>
-                     <!-- نهاية الكتاب -->
-                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->                    <!-- بداية الكتاب -->
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
-                      <div  id="" class="card bg-light">
-                        <div  class="card-header text-muted border-bottom-0">
-                          تصنيف الكتاب
-                        </div>
-                        <div class="card-body pt-0">
-                          <div class="row">
-                            <div class="col-7">
-                              <h2 class="lead"><b>اسم الكتاب</b></h2>
-                              <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: متاح</li>
-                                <li class="small"><span class="fa-li"></span>السعر: 500</li>
-                              </ul>
-                            </div>
-                            <div class="col-5 text-center">
-                                <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.png' %}" alt="" class="img-circle img-fluid">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="text-right">
-                            <a href="#" class="btn btn-sm bg-danger">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- نهاية الكتاب -->
+                    {% endfor %}
+                    <!-- نهاية الكتاب -->
+
                   </div>
                 </div>
                 <!-- /.card-body -->

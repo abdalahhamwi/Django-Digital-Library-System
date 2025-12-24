@@ -5,7 +5,14 @@ from .models import *
 
 
 def books(request):
-    return render(request, "books.html")
+    return render(
+        request,
+        "books.html",
+        {
+            "books": Book.objects.all(),
+            "cat": Category.objects.all(),
+        },
+    )
 
 
 def delete(request):
@@ -13,11 +20,15 @@ def delete(request):
 
 
 def index(request):
-    return render(request, "index.html", {
-        "x": Book.objects.all(),
-        "num": str(Book.objects.count())
-    })
-
+    return render(
+        request,
+        "index.html",
+        {
+            "books": Book.objects.all(),
+            "cat": Category.objects.all(),
+            "num": str(Book.objects.count()),
+        },
+    )
 
 
 def update(request):
