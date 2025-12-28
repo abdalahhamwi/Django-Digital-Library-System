@@ -96,56 +96,20 @@
                     </a>
                   </li> 
               <form id="cat" method="POST">
-             
-                  <input type="text" class="form-control">
-
+                <div id = "catinput">
+                  {% csrf_token %} {{form_category}}
                   <button type="submit" class="btn btn-success">save</button>
                   <button id="backcat" class="btn btn-primary ">back</button>
               </form>  
              
+                  {% for z in cat%}
                   <li style="cursor: pointer;" class="nav-item">
                     <a id="" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>test 1</p>
+                      <p>{{z.name}}</p>
                     </a>
                   </li>
- 
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 2</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 3</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 4</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 5</p>
-                    </a>
-                  </li>
-
-                  <li style="cursor: pointer;" class="nav-item">
-                    <a id="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>test 6</p>
-                    </a>
-                  </li>
-        
-
+                  {% endfor %}
             </ul>
           </li>
 
@@ -165,7 +129,7 @@
           </li>
           <li style="cursor: pointer;" class="nav-item">
             <a id="" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
+              <i class="nav-icon far fa-circle text-green"></i>
               <p>متاح</p>
             </a>
           </li>
@@ -233,6 +197,16 @@
 <script src="{% static 'dist/js/demo.js' %}"></script>
 <script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>
 
+<script>
+    $("#catinput").hide()
+    $("#addcat").click(function(){
+    $("#catinput").show()
+    });
+    $("#backcat").click(function(){
+       $("#catinput").hide()
+    });
+    </script>
+    
 <script>
   $(document).ready(function(){
     $('#myModal').on('shown.bs.modal', function () {
