@@ -279,7 +279,7 @@
           <!-- books -->
           <div class="row">
             <!-- الكتب -->
-            {% for x in books %}
+            {% for book in books %}
             <div id="" class="col-md-4">
               <!-- Widget: user widget style 1 -->
               <div id="" class="card card-widget widget-user">
@@ -296,26 +296,26 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{% url 'update' %}">تعديل</a>
-                    <a class="dropdown-item" href="{% url 'delete' %}">حذف</a>
+                    <a class="dropdown-item" href="{% url 'update' book.id %}">تعديل</a>
+                    <a class="dropdown-item" href="{% url 'delete'  %}">حذف</a>
                     <!-- Button trigger modal -->
                   </div>
                 </div>
-                {% if x.photo_book %}
-                <div style="background: url({{x.photo_book.url}}); background-size: cover;" class="widget-user-header bg-info">
-                  
+
+                {% if book.photo_book %}
+                <div style="background: url({{book.photo_book.url}}); background-size: cover;" class="widget-user-header bg-info">
                   {% else %}
                   <div class="widget-user-header bg-info">
                     {% endif %}
-                    <h3 class="widget-user-username">{{x.title}}</h3>
-                    <h5 class="widget-user-desc">{{x.author}}</h5>
+                    <h3 class="widget-user-username">{{book.title}}</h3>
+                    <h5 class="widget-user-desc">{{book.author}}</h5>
                   </div>
                   <div class="widget-user-image">
-                    {% if x.photo_author %}
+                    {% if book.photo_author %}
                     <img
                       style="width: 100px; height: 100px"
                       class="img-circle elevation-2"
-                      src="{{ x.photo_author.url }}"
+                      src="{{ book.photo_author.url }}"
                       alt="User Avatar"
                     />
                     {% endif %}
@@ -324,7 +324,7 @@
                     <div class="row">
                       <div class="col-sm-4 border-right">
                         <div class="description-block">
-                          <h5 class="description-header">{{x.pages}}</h5>
+                          <h5 class="description-header">{{book.pages}}</h5>
                           <span class="description-text">صفحة</span>
                         </div>
                         <!-- /.description-block -->
@@ -332,13 +332,13 @@
                       <!-- /.col -->
                       <div class="col-sm-4 border-right">
                         <div class="description-block">
-                          {% if x.rental_price_day %}
+                          {% if book.rental_price_day %}
                           <h5 class="description-header">
-                            {{x.rental_price_day}}$
+                            {{book.rental_price_day}}$
                           </h5>
                           <span class="description-text">في اليوم</span>
-                          {% elif x.price %}
-                          <h5 class="description-header">{{x.price}}$</h5>
+                          {% elif book.price %}
+                          <h5 class="description-header">{{book.price}}$</h5>
                           <span class="description-text">السعر</span>
                           {% endif %}
                         </div>
@@ -347,17 +347,17 @@
                       <!-- /.col -->
                       <div class="col-sm-4">
                         <div class="description-block">
-                          {% if x.status == "available" %}
+                          {% if book.status == "available" %}
                           <h5 class="description-header text-green">
-                            {{x.status}}
+                            {{book.status}}
                           </h5>
-                          {% elif x.status == "sold" %}
+                          {% elif book.status == "sold" %}
                           <h5 class="description-header text-danger">
-                            {{x.status}}
+                            {{book.status}}
                           </h5>
                           {% else %}
                           <h5 class="description-header text-warning">
-                            {{x.status}}
+                            {{book.status}}
                           </h5>
                           {% endif %}
                           <span class="description-text">الحالة</span>
