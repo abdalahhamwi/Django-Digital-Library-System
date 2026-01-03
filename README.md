@@ -1,40 +1,45 @@
-# 📚  Digital Library Management System
+# 📚 Django Digital Library System
 
-A complete open-source project for managing physical libraries, built with the Django Framework.  
-This system is designed to simplify book tracking, sales, rentals, and provide accurate financial statistics for library owners.  
-
-It was developed as a practical application to learn Django fundamentals and how to build content management systems (CMS).
-
-## 🚀 Project Overview
-This system is not just a bookstore, but a real library management tool.  
-It allows managers to monitor inventory (available, rented, and sold books) and automatically calculate profits with precision.
+A clean, production-ready Django project to manage a physical library: books inventory, categories, statuses (available, sold, rented), and profit reporting. Built to practice CMS patterns and offer a practical tool for small libraries.
 
 
+
+## 📖 Project Overview
+This isn’t just a bookstore UI—it’s a real library management system.  
+Track total books, available vs. sold vs. rented, and compute profits from sales and rentals, with quick search and AJAX filters for category and status.
+
+---
 
 ## ✨ Key Features
-- Comprehensive Dashboard: Instant statistics for total, available, sold, and rented books.
-- Book Management (CRUD): Add, edit, and delete books easily from the user interface.
-- Detailed Book Info: Title, author, cover image, price, and page count.
-- Categories System: Add and manage book categories dynamically.
-- Status Tracking: Change book status (Available, Sold, Rented).
-- Financial Reports: Automatic calculation of profits from sales and rentals.
-- Search & Filter:
-  - Quick search for books.
-  - Filter by category.
-  - Filter by status using AJAX (without page reload).
+- **Dashboard:** Instant stats for total, available, sold, and rented books.  
+- **Book CRUD:** Create, update, delete directly from the UI.  
+- **Book fields:** Title, author, cover image, price, page count.  
+- **Categories:** Dynamic category creation and assignment.  
+- **Status tracking:** Available, Sold, Rented with quick toggles.  
+- **Financials:** Automatic profits from sales and rentals.  
+- **Search and filters:** Text search, category filter, and AJAX status filter.  
 
 
 
-## 🛠️ Tech Stack
-- Backend: Python, Django Framework  
-- Database: SQLite (default) or any Django-supported database  
-- Frontend: HTML, CSS, Bootstrap, JavaScript (AJAX filtering)
+## 🛠 Tech Stack
+- **Backend:** Python, Django  
+- **Database:** SQLite (default)  
+- **Frontend:** HTML, CSS, Bootstrap, JavaScript (AJAX)  
 
 
 
-## 💻 Installation
-Follow these steps to run the project locally:
+## ⚙️ Setup
 
-1. Make sure Python and Django are installed.  
-2. Clone the repository:  
-   git clone https://github.com/abdalahhamwi/Django-Digital-Library-System.git
+1. Clone the repository
+2. git clone https://github.com/abdalahhamwi/Django-Digital-Library-System.git 
+3. Create a virtual environment and install dependencies
+python -m venv venv
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+4. Apply migrations
+python manage.py migrate
+5. Run the development server
+python manage.py runserver
+6. Open in browser
+http://127.0.0.1:8000
