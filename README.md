@@ -8,7 +8,7 @@ A clean, production-ready Django project to manage a physical library: books inv
 This isn’t just a bookstore UI—it’s a real library management system.  
 Track total books, available vs. sold vs. rented, and compute profits from sales and rentals, with quick search and AJAX filters for category and status.
 
----
+
 
 ## ✨ Key Features
 - **Dashboard:** Instant stats for total, available, sold, and rented books.  
