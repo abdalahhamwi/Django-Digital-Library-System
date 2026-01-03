@@ -151,19 +151,19 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
+
       <form  method="POST" enctype="multipart/form-data">
       {% csrf_token %}
         <div class="row">
-          
        <p class="p-3">هل تريد حقاً حذف الكتاب؟</p>
-   
         </div>
+        
         <!-- /.card-body -->
   
         <div class="card-footer">
           <button type="submit" class="btn btn-danger">حذف</button>
-  
-          <button data-target="{% url 'index' %}" type="submit" class="btn btn-success">تراجع</button>
+          <a type="button" class="btn btn-success" href="{% url 'index' %}" >تراجع</a>
+
         </div>
       </form>
     </div>
