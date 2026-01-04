@@ -42,7 +42,7 @@
           ></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Home</a>
+          <a href= "{% url 'index' %}" class="nav-link">Home</a>
         </li>
       </ul>
 
@@ -72,7 +72,7 @@
       class="main-sidebar sidebar-dark-primary elevation-4"
     >
       <!-- Brand Logo -->
-      <a href="#" class="brand-link">
+      <a href="{% url 'index' %}" class="brand-link">
         <span class="brand-text font-weight-light">Digital Library System</span>
       </a>
 
@@ -82,23 +82,23 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image"></div>
           <div class="info">
-            <a href="#" class="d-block">Abdalah Hamwi</a>
+            <a href="https://github.com/abdalahhamwi" class="d-block">Abdalah Hamwi</a>
           </div>
         </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-          <ul
+            <ul
             class="nav nav-pills nav-sidebar flex-column"
             data-widget="treeview"
             role="menu"
             data-accordion="false"
-          >
+            >
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{% url 'books' %}"  class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
-                <p>New Books</p>
-              </a>
+               <p>New Books</p>  </a>
+
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -124,7 +124,7 @@
                 </form>
 
                 {% for z in cat%}
-                <li style="cursor: pointer" class="nav-item">
+                <li style="cursor: pointer" class="nav-item z{{z.id}}">
                   <a id="" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>{{z.name}}</p>
@@ -134,19 +134,19 @@
               </ul>
             </li>
             <li class="nav-header">الكتب المستعارة</li>
-            <li style="cursor: pointer" class="nav-item">
+            <li style="cursor: pointer" class="nav-item statussold">
               <a id="statusSold" class="nav-link">
                 <i class="nav-icon far fa-circle text-danger"></i>
                 <p class="text">تم بيعه</p>
               </a>
             </li>
-            <li style="cursor: pointer" class="nav-item">
+            <li style="cursor: pointer" class="nav-item statusrental">
               <a id="" class="nav-link">
                 <i class="nav-icon far fa-circle text-warning"></i>
                 <p>تم استعارته</p>
               </a>
             </li>
-            <li style="cursor: pointer" class="nav-item">
+            <li style="cursor: pointer" class="nav-item statusavailble">
               <a id="" class="nav-link">
                 <i class="nav-icon far fa-circle text-green"></i>
                 <p>متاح</p>
@@ -269,7 +269,7 @@
             <div class="col-4">
               {% for z in cat|slice:'4' %}
               <ul class="nav">
-                <li class="nav-item">
+                <li class="nav-item z{{z.id}}" >
                   <a id="" class="nav-link bg-primary" href="#">{{z.name}}</a>
                 </li>
                 {% endfor %}
@@ -280,7 +280,8 @@
           <div class="row">
             <!-- الكتب -->
             {% for book in books %}
-            <div id="" class="col-md-4">
+            <div id="" class="col-md-4 bookhide book{{book.category.id}}
+             book{{book.status}}">
               <!-- Widget: user widget style 1 -->
               <div id="" class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -400,7 +401,6 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="{% static 'plugins/jquery_datepacker/jquery_ui.js' %}"></script>
-
     <!-- jQuery -->
     <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
     <!-- Bootstrap -->
@@ -408,12 +408,25 @@
     <!-- AdminLTE -->
     <script src="{% static 'dist/js/adminlte.js' %}"></script>
     <!-- OPTIONAL SCRIPTS -->
-
     <script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
-
     <script src="{% static 'dist/js/demo.js' %}"></script>
-    <script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>
+    <!-- <script src="{% static 'dist/js/pages/dashboard3.js' %}"></script> -->
 
+    {% for book in books %}
+
+    <script>
+    $(".z{{book.category.id}}").click(function(){
+    $(".bookhide").hide();
+    $(".book{{book.category.id}}").show();
+    });
+
+    $(".status{{book.status}}").click(function(){
+    $(".bookhide").hide();
+    $(".book{{book.category.id}}").show();
+    });
+    </script>
+    {% endfor %}
+    
      <script>
     $("#catinput").hide()
     $("#addcat").click(function(){
@@ -423,7 +436,7 @@
        $("#catinput").hide()
     });
     </script>
-    
+
     <script>
       $(document).ready(function () {
         $("#myModal").on("shown.bs.modal", function () {

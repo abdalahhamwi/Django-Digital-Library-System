@@ -28,7 +28,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href= "{% url 'index' %}" class="nav-link">Home</a>
       </li>
 
     </ul>
@@ -51,7 +51,7 @@
   <!-- Main Sidebar Container -->
   <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="{% url 'index' %}" class="brand-link">
       <span class="brand-text font-weight-light">Digital Library System</span>
     </a>
 
@@ -62,7 +62,7 @@
         <div class="image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Abdalah Hamwi</a>
+          <a href="https://github.com/abdalahhamwi" class="d-block">Abdalah Hamwi</a>
         </div>
       </div>
 
@@ -71,7 +71,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{% url 'books' %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 New Books
@@ -253,7 +253,7 @@
 <script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
 
 <script src="{% static 'dist/js/demo.js' %}"></script>
-<script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>
+<!-- <script src="{% static 'dist/js/pages/dashboard3.js' %}"></script> -->
 
 <script>
     $("#catinput").hide()
