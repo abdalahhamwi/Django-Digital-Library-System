@@ -79,6 +79,11 @@ def index(request):
 
     total_salary = sold_total + rented_total
 
+    # حساب عدد الكتب حسب الحالة
+    sold_count = books.filter(status="sold").count()
+    rented_count = books.filter(status="rented").count()
+    available_count = books.filter(status="available").count()
+
     return render(
         request,
         "index.html",
@@ -91,6 +96,9 @@ def index(request):
             "sold_total": sold_total,
             "rented_total": rented_total,
             "total_salary": total_salary,
+            "sold_count": sold_count,
+            "rented_count": rented_count,
+            "available_count": available_count,
         },
     )
 
