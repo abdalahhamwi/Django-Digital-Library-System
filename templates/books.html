@@ -178,9 +178,10 @@
                               <ul class="  fa-ul text-muted">
                                 <li class="small"><span class="fa-li"></span>الحالة: {{book.status}}</li>
                                 {% if book.rental_price_day %}
-                                <li class="small"><span class="fa-li"></span>في اليوم:${{book.rental_price_day}}</li>
+                                <li class="small"><span class="fa-li"></span>في اليوم:{{book.rental_price_day}}$</li>
                                 {% elif book.price %}
-                                <li class="small"><span class="fa-li"></span> السعر:${{book.price}}</li>
+                                <li class="small"><span class="fa-li"></span> السعر:
+                                {{book.price}}$</li>
                                 {% endif %}
                               </ul>
                             </div>

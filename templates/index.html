@@ -332,11 +332,11 @@
                         <div class="description-block">
                           {% if book.rental_price_day %}
                           <h5 class="description-header">
-                            {{book.rental_price_day}}$
+                          ${{book.rental_price_day}}
                           </h5>
                           <span class="description-text">في اليوم</span>
                           {% elif book.price %}
-                          <h5 class="description-header">{{book.price}}$</h5>
+                          <h5 class="description-header">${{book.price}}</h5>
                           <span class="description-text">السعر</span>
                           {% endif %}
                         </div>
