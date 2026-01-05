@@ -28,7 +28,7 @@ Track total books, available vs. sold vs. rented, and compute profits from sales
 
 
 
-🚀 Deployment
+## 🚀 Deployment
 
 This project is deployed on Render for production testing.  
 It uses Gunicorn as the WSGI server, while Render handles SSL, reverse proxy, and scaling.  
