@@ -53,25 +53,44 @@ def delete(request, id):
 
 
 def index(request):
+
     if request.method == "POST":
         add_book = BookForm(request.POST, request.FILES)
         if add_book.is_valid():
             add_book.save()
 
-    if request.method == "POST":
         add_category = CategoryForm(request.POST)
         if add_category.is_valid():
             add_category.save()
+
+    books = Book.objects.all()
+
+    # حساب الأرباح من البيع
+    sold_total = sum(
+        book.price for book in books if book.status == "sold" and book.price
+    )
+
+    # حساب الأرباح من الاستعارة
+    rented_total = sum(
+        (book.rental_price_day or 0) * (book.rental_period or 1)
+        for book in books
+        if book.status == "rented"
+    )
+
+    total_salary = sold_total + rented_total
 
     return render(
         request,
         "index.html",
         {
-            "books": Book.objects.all(),
+            "books": books,
             "cat": Category.objects.all(),
             "num": str(Book.objects.count()),
             "form": BookForm(),
             "form_category": CategoryForm(),
+            "sold_total": sold_total,
+            "rented_total": rented_total,
+            "total_salary": total_salary,
         },
     )
 
