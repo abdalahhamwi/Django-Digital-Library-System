@@ -12,11 +12,18 @@ def books(request):
         if add_category.is_valid():
             add_category.save()
 
+    # البحث فقط في اسم الكتاب
+    title_filter = request.GET.get("search_name", "")
+    if title_filter:  # إذا فيه نص مكتوب
+        books = Book.objects.filter(title__icontains=title_filter)
+    else:  # إذا فارغ أو ممسوح
+        books = Book.objects.all()
+
     return render(
         request,
         "books.html",
         {
-            "books": Book.objects.all(),
+            "books": books,
             "cat": Category.objects.all(),
             "form_category": CategoryForm(),
         },
