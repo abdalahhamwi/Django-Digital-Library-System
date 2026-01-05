@@ -135,18 +135,18 @@
             </li>
             <li class="nav-header">الكتب المستعارة</li>
             <li style="cursor: pointer" class="nav-item statussold">
-              <a id="statusSold" class="nav-link">
+              <a id="" class="nav-link">
                 <i class="nav-icon far fa-circle text-danger"></i>
                 <p class="text">تم بيعه</p>
               </a>
             </li>
-            <li style="cursor: pointer" class="nav-item statusrental">
+            <li style="cursor: pointer" class="nav-item statusrented">
               <a id="" class="nav-link">
                 <i class="nav-icon far fa-circle text-warning"></i>
                 <p>تم استعارته</p>
               </a>
             </li>
-            <li style="cursor: pointer" class="nav-item statusavailble">
+            <li style="cursor: pointer" class="nav-item statusavailable">
               <a id="" class="nav-link">
                 <i class="nav-icon far fa-circle text-green"></i>
                 <p>متاح</p>
@@ -419,7 +419,7 @@
 
     $(".status{{book.status}}").click(function(){
     $(".bookhide").hide();
-    $(".book{{book.category.id}}").show();
+    $(".book{{book.status}}").show();
     });
     </script>
     {% endfor %}

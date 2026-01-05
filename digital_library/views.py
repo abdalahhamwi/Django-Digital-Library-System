@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import *
+from .models import Book, Category
 from .forms import BookForm, CategoryForm
 
 # Create your views here.
@@ -12,11 +12,11 @@ def books(request):
         if add_category.is_valid():
             add_category.save()
 
-    # البحث فقط في اسم الكتاب
+    # Search only by book title
     title_filter = request.GET.get("search_name", "")
-    if title_filter:  # إذا فيه نص مكتوب
+    if title_filter:  # if there is text entered
         books = Book.objects.filter(title__icontains=title_filter)
-    else:  # إذا فارغ أو ممسوح
+    else:  # if empty or cleared
         books = Book.objects.all()
 
     return render(
@@ -65,12 +65,12 @@ def index(request):
 
     books = Book.objects.all()
 
-    # حساب الأرباح من البيع
+    # calculate profit from sales
     sold_total = sum(
         book.price for book in books if book.status == "sold" and book.price
     )
 
-    # حساب الأرباح من الاستعارة
+    # calculate profit from borrowing
     rented_total = sum(
         (book.rental_price_day or 0) * (book.rental_period or 1)
         for book in books
@@ -79,7 +79,7 @@ def index(request):
 
     total_salary = sold_total + rented_total
 
-    # حساب عدد الكتب حسب الحالة
+    # calculate number of books by status
     sold_count = books.filter(status="sold").count()
     rented_count = books.filter(status="rented").count()
     available_count = books.filter(status="available").count()
