@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "change-me") 
+SECRET_KEY = os.environ.get("SECRET_KEY",)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = os.environ.get("DEBUG", "False").lower() == "True"
 
-ALLOWED_HOSTS = ["django-digital-library-system-3.onrender.com"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -87,7 +87,7 @@ DATABASES = {
 
 # PostgreSQL للإنتاج (لو فيه DATABASE_URL)
 db_from_env = dj_database_url.config(
-    default=os.environ.get("DATABASE_URL", ""),
+    default=os.environ.get("DATABASE_URL"),
     conn_max_age=600,
     ssl_require=True,
 )
