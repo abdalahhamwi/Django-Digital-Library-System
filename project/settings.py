@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "change-me")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["django-digital-library-system-3.onrender.com"]
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -134,6 +135,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "project/static")]
 
 STATIC_URL = "/static/"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # MEDIA
 
