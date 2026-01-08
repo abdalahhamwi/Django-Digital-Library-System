@@ -35,18 +35,18 @@ It uses Gunicorn as the WSGI server, while Render handles SSL, reverse proxy, an
 
 install Libraries :
 
-whitenoise (add middleware)
-gunicorn : server
-dj_database_url (add db settings)
-install psycopg2-binary
-add static_root to settings
-update requirments.txt
-setup .env
-push to github
-create new account in render
-create db service
-create web service
-run command : gunicorn project.wsgi:application
+- whitenoise (add middleware)
+- gunicorn : server
+- dj_database_url (add db settings)
+- install psycopg2-binary
+- add static_root to settings
+- update requirments.txt
+- setup .env
+- push to github
+- create new account in render
+- create db service
+- create web service
+- run command : gunicorn project.wsgi:application
 
 Production Stack
 - Hosting: Render
