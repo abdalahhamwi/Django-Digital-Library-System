@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,14 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ="Msh6-H_F8K67ThDipuYNu7Rk-tTN9va9-rE5VHE9gJxEfS8Y234r_zYnav5Uvu5v_yk"
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG ="True"
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
@@ -45,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -83,6 +83,16 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# PostgreSQL للإنتاج (لو فيه DATABASE_URL)
+db_from_env = dj_database_url.config(
+    default=os.environ.get("DATABASE_URL"),
+    conn_max_age=600,
+    ssl_require=True,
+)
+
+if db_from_env:
+    DATABASES["default"] = db_from_env
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -125,6 +135,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "project/static")]
 
 STATIC_URL = "/static/"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # MEDIA
