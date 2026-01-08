@@ -33,14 +33,26 @@ Track total books, available vs. sold vs. rented, and compute profits from sales
 This project is deployed on Render for production testing.  
 It uses Gunicorn as the WSGI server, while Render handles SSL, reverse proxy, and scaling.  
 
-🔗 Live Demo: [https://your-app-name.onrender.com](https://your-app-name.onrender.com)
+install Libraries :
+
+whitenoise (add middleware)
+gunicorn : server
+dj_database_url (add db settings)
+install psycopg2-binary
+add static_root to settings
+update requirments.txt
+setup .env
+push to github
+create new account in render
+create db service
+create web service
+run command : gunicorn project.wsgi:application
 
 Production Stack
 - Hosting: Render
 - Server: Gunicorn (WSGI)
 - SSL & Reverse Proxy: Managed by Render
 - Database: SQLite (default, can be switched to PostgreSQL on Render)
-
 
 
 ## ⚙️ Setup
