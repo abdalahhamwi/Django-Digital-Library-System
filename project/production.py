@@ -53,6 +53,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+WHITENOISE_MANIFEST_STRICT = False
+
 ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
@@ -136,7 +138,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 STATIC_URL = "/static/"
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # MEDIA
