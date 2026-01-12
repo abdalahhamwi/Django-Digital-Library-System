@@ -268,7 +268,7 @@
               {% for z in cat|slice:'4' %}
               <ul class="nav">
                 <li class="nav-item z{{z.id}}" >
-                  <a id="" class="nav-link bg-primary" href="#">{{z.name}}</a>
+                  <a id="" class="nav-link bg-primary">{{z.name}}</a>
                 </li>
                 {% endfor %}
               </ul>
@@ -317,6 +317,13 @@
                       src="{{ book.photo_author.url }}"
                       alt="User Avatar"
                     />
+                    {% else %}
+                    <img
+                      style="width: 100px; height: 100px"
+                      class="img-circle elevation-2"
+                      src="{% static '../static/media/img/user2-160x160.jpg'%}"
+                      alt="User Avatar"
+                      />
                     {% endif %}
                   </div>
                   <div class="card-footer">
