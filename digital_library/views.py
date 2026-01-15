@@ -58,10 +58,12 @@ def index(request):
         add_book = BookForm(request.POST, request.FILES)
         if add_book.is_valid():
             add_book.save()
+            return redirect("/")
 
         add_category = CategoryForm(request.POST)
         if add_category.is_valid():
             add_category.save()
+           
 
     books = Book.objects.all()
 
