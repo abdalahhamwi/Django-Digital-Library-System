@@ -38,7 +38,6 @@ install Libraries :
 - whitenoise (add middleware)
 - gunicorn : server
 - dj_database_url (add db settings)
-- install psycopg2-binary
 - add static_root to settings
 - update requirments.txt
 - setup .env
@@ -52,7 +51,7 @@ Production Stack
 - Hosting: Render
 - Server: Gunicorn (WSGI)
 - SSL & Reverse Proxy: Managed by Render
-- Database: SQLite (default, can be switched to PostgreSQL on Render)
+- Database: SQLite (default, PostgreSQL on Render)
 
 
 ## ⚙️ Setup
