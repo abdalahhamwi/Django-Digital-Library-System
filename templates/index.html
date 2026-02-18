@@ -64,6 +64,7 @@
         </div>
       </form>
     </nav>
+    <br>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
@@ -208,7 +209,7 @@
                     <div class="d-flex">
                       <p class="d-flex flex-column">
                         <span id="totalsalarys" class="text-bold text-lg"
-                          >${{ total_salary|floatformat:0 }}</span
+                          >${{total_salary|floatformat:0}}</span
                         ><br />
                       </p>
                     </div>
@@ -220,13 +221,11 @@
 
                     <div class="d-flex flex-row justify-content-end">
                       <span class="mr-2">
-                        <i class="fas fa-square text-primary"></i> ${{
-                        sold_total|floatformat:0 }} الارباح من بيع الكتب
+                        <i class="fas fa-square text-primary"></i> ${{sold_total}} الارباح من بيع الكتب
                         <p id="soldtotals"></p>
                       </span>
                       <span>
-                        <i class="fas fa-square text-gray"></i> ${{
-                        rented_total}} الارباح من استعارة الكتب
+                        <i class="fas fa-square text-gray"></i> ${{rented_total}} الارباح من استعارة الكتب
                         <p id="rentedtotals"></p>
                       </span>
                     </div>
@@ -333,7 +332,7 @@
                     <img
                       style="width: 100px; height: 100px"
                       class="img-circle elevation-2"
-                      src="{% static '../static/media/img/user2-160x160.jpg'%}"
+                      src="{% static 'dist/img/user2-160x160.jpg'%}"
                       alt="User Avatar"
                     />
                     {% endif %}
