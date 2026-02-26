@@ -34,16 +34,49 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form method="GET" class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" name="search_name" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
+<form method="GET" action="{% url 'books' %}" class="form-inline ml-3">
+  <div class="input-group input-group-sm">
+    <input
+      class="form-control form-control-navbar"
+      name="search_name"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <div class="input-group-append">
+      <button class="btn btn-navbar" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+</nav>
+<br>
+<!-- عرض الكتب والنتائج -->
+<div>
+  {% if books %}
+    <!-- إذا كان هناك كتب (نتائج البحث أو كل الكتب) -->
+    <h5>{% if request.GET.search_name %}{% else %}{% endif %}</h5>
+    <div class="row">
+      {% for book in books %}
+        <div class="col-md-4">
+
+            </div>
+          </div>
         </div>
+      {% endfor %}
+    </div>
+   {% else %}
+    <!-- إذا كانت القائمة فارغة -->
+    {% if request.GET.search_name %}
+      <!-- إذا كان هناك بحث ولم يتم العثور على نتائج -->
+      <div class="alert alert-warning text-center" style="position: relative; right: 5%;">
+        <i class="fas fa-exclamation-triangle"></i>
+        لا توجد نتائج مطابقة لبحثك عن "{{ request.GET.search_name }}"
       </div>
-    </form>
+    {% endif %}
+  {% endif %}
+  </div>
   </nav>
   <!-- /.navbar -->
   
@@ -135,14 +168,11 @@
         
             <!-- Main content -->
             <section>                  
-              <!-- Default box -->
-              <div class="card card-solid">
-                <div class="card-body pb-1">
                   <div class="row d-flex align-items-stretch">
                     <!-- بداية الكتاب -->
 
                     {% for book in books %}
-                    <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
+                    <div   class="col-12 col-sm-6 col-md-4 d-align-items-stretch ">
                       <div  id="" class="card bg-light">
                         <div  class="card-header text-muted border-bottom-0">
                           {{book.category}}
@@ -187,13 +217,12 @@
                     <!-- نهاية الكتاب -->
 
                   </div>
-                </div>
+               
                 <!-- /.card-body -->
   
                 <!-- /.card-footer -->
               </div>
               <!-- /.card -->
-        
             </section>
             <!-- /.content -->
           </div>
